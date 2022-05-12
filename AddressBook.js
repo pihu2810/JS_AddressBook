@@ -1,31 +1,52 @@
-// importing another class file to this class file
-const ContactDetails = require("./ContactDetails.js");
-const prompt = require('prompt-sync')();
-
-// ability to add details to ContactDetails class
-var contactInfo = new ContactDetails("Kunal","Kumar","Nzb","Hyderabad","Telangana","502303","9145794857"
-                  ,"kunalkumar@gmail.com");
-
-console.log(contactInfo.toString());
-
-
-contactInfo.firstName = "Vishaka";
-contactInfo.lastName = "Kadam";
-contactInfo.address = "Hyd";
-contactInfo.city = "Hyderabad";
-contactInfo.state = "Telangana";
-contactInfo.zip = "500048";
-contactInfo.phoneNumber = "8100012123";
-contactInfo.email = "vishuK@gmail.com";
-console.log(contactInfo.toString());
-
-//Ability to add user-defined values to the PersonInfoData
-contactInfo.firstName = prompt("Enter First Name : "); 
-contactInfo.lastName = prompt("Enter Last Name : "); 
-contactInfo.address = prompt("Enter Address : "); 
-contactInfo.city = prompt("Enter City : "); 
-contactInfo.state = prompt("Enter State : "); 
-contactInfo.zip = prompt("Enter Zip : "); 
-contactInfo.phoneNumber = prompt("Enter Phone Number : "); 
-contactInfo.email = prompt("Enter Email : "); 
-console.log(contactInfo.toString());
+//UC-1
+class Contact {
+    // Constructor for the different fields of contact
+    constructor(...params) {
+        this.firstName = params[0];
+        this.lastName = params[1];
+        this.address = params[2];
+        this.city = params[3];
+        this.state = params[4];
+        this.zip = params[5];
+        this.phoneNumber = params[6];
+        this.email = params[7];
+    }
+// Getter & Setter method
+get firstName() { return this._firstName; }
+set firstName(firstName) {
+    this._firstName = firstName;
+}
+get lastName() { return this._lastName; }
+set lastName(lastName) {
+    this._lastName = lastName;
+}
+get address() { return this._address; }
+set address(address) {
+    this._address = address;
+}
+get city() { return this._city; }
+set city(city) {
+    this._city = city;
+}
+get state() { return this._state; }
+set state(state) {
+    this._state = state;
+}
+get zip() { return this._zip; }
+set zip(zip) {
+    this._zip = this.zip;
+}
+get phoneNumber() { return this._phoneNumber; }
+set phoneNumber(phoneNumber) {
+    this._phoneNumber = phoneNumber;
+}
+get email() { return this._email; }
+set email(email) {
+    this._email = email;
+}
+//To string method for displaying contacts
+toString() {
+    return "First Name: " + this.firstName + " Last Name: " + this.lastName + " Address: " + this.address + " City: " + this.city
+        + " State: " + this.state + " Zipcode: " + this.zip + " Phone Number: " + this.phoneNumber + " Email: " + this.email;
+}
+}
